@@ -49,7 +49,7 @@ function addressesBalance(req, res) {
         const max = 1000000;
         const min = 1;
 
-        const apiUrl = "https://api.vbk.zelcore.io/api" // config.server.address + config.server.port + "/api";
+        const apiUrl = config.server.address + config.server.port + "/api";
         const data = {
             jsonRpc: "2.0",
             method: "getbalance",
