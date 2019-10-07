@@ -1,9 +1,9 @@
 const axios = require("axios");
 
 function addressesBalance() {
-  const proxyUrl = "http://127.0.0.1:10101/addressesbalance";
+  const proxyUrl = "https://proxy.vbk.zelcore.io/addressesbalance";
   const data = {
-    addresses: ["V7GKRDmXMFYsyyZo8UvSQWnRQ2FA3A", "VDuSjNZ4xHb7bXTR9Y1Rt8Qe5J5awg"]
+    addresses: ["V7GKRDmXMFYsyyZo8UvSQWnRQ2FA3A"]
   };
   axios
     .post(proxyUrl, data)

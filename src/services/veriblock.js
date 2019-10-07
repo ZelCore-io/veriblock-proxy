@@ -125,8 +125,53 @@ function addressesHistory(req, res) {
     });
 }
 
+function submitTransaction(req, res) {
+    let body = '';
+    req.on('data', function (data) {
+        body += data;
+    });
+
+    req.on('end', function () {
+        const processedBody = JSON.parse(body)
+        const obtainedTransactions = processedBody.transactions;
+        const max = 1000000;
+        const min = 1;
+
+        const apiUrl = "https://api.vbk.zelcore.io/api";
+        const data = {
+            jsonRpc: "2.0",
+            method: "submittransaction",
+            params: { transactions: obtainedTransactions },
+            id: Math.floor(Math.random() * (max - min + 1)) + min
+        };
+        const axiosConfig = {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-VBK-RPC-PASSWORD": config.server.password
+            },
+        };
+        axios
+            .post(apiUrl, data, axiosConfig)
+            .then(response => {
+                console.log(response)
+                return res.json(response.data)
+            })
+            .catch(error => {
+                const errMessage = {
+                    status: "error",
+                    data: {
+                        message: "An error has been encountered while processing request."
+                    }
+                }
+                log.error(error);
+                return res.json(errMessage)
+            });
+    });
+}
+
 module.exports = {
     getInfo,
     addressesBalance,
-    addressesHistory
+    addressesHistory,
+    submitTransaction
 }
