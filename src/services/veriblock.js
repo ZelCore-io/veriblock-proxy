@@ -125,7 +125,7 @@ function addressesHistory(req, res) {
     });
 }
 
-function submitTransaction(req, res) {
+function submitTransactions(req, res) {
     let body = '';
     req.on('data', function (data) {
         body += data;
@@ -140,7 +140,7 @@ function submitTransaction(req, res) {
         const apiUrl = "https://api.vbk.zelcore.io/api";
         const data = {
             jsonRpc: "2.0",
-            method: "submittransaction",
+            method: "submittransactions",
             params: { transactions: obtainedTransactions },
             id: Math.floor(Math.random() * (max - min + 1)) + min
         };
@@ -173,5 +173,5 @@ module.exports = {
     getInfo,
     addressesBalance,
     addressesHistory,
-    submitTransaction
+    submitTransactions
 }

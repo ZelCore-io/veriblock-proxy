@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.post('/addresseshistory', function (req, res) {
         veriblock.addressesHistory(req, res)
     })
-    app.post('/submittransaction', function (req, res) {
-        veriblock.submitTransaction(req, res)
+    app.post('/submittransactions', function (req, res) {
+        veriblock.submitTransactions(req, res)
     })
 };
