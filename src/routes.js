@@ -15,4 +15,7 @@ module.exports = (app) => {
     app.post('/submittransactions', function (req, res) {
         veriblock.submitTransactions(req, res)
     })
+    app.post('/addressessignatureindex', function (req, res) {
+        veriblock.addressesSignatureIndex(req, res)
+    })
 };

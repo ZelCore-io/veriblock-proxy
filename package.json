@@ -1,6 +1,6 @@
 {
   "name": "veriblock-proxy",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Proxy server to securely connect to nodecore",
   "main": "index.js",
   "scripts": {
