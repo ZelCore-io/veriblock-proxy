@@ -22,7 +22,7 @@ function getInfo(res) {
     axios
         .post(apiUrl, data, axiosConfig)
         .then(response => {
-            console.log(response.data)
+            // console.log(response.data)
             return res.json(response.data)
         })
         .catch(error => {
@@ -65,7 +65,7 @@ function addressesBalance(req, res) {
         axios
             .post(apiUrl, data, axiosConfig)
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 return res.json(response.data)
             })
             .catch(error => {
@@ -109,7 +109,7 @@ function addressesHistory(req, res) {
         axios
             .post(apiUrl, data, axiosConfig)
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 return res.json(response.data)
             })
             .catch(error => {
@@ -141,7 +141,7 @@ function submitTransactions(req, res) {
         const data = {
             jsonRpc: "2.0",
             method: "submittransactions",
-            params: { transactions: obtainedTransactions },
+            params: { transactions: [obtainedTransactions] },
             id: Math.floor(Math.random() * (max - min + 1)) + min
         };
         const axiosConfig = {
@@ -150,10 +150,11 @@ function submitTransactions(req, res) {
                 "X-VBK-RPC-PASSWORD": config.server.password
             },
         };
+        console.log(data);
         axios
             .post(apiUrl, data, axiosConfig)
             .then(response => {
-                console.log(response)
+                // console.log(response)
                 return res.json(response.data)
             })
             .catch(error => {
