@@ -6,7 +6,7 @@ function getInfo(res) {
     const max = 1000000;
     const min = 1;
 
-    const apiUrl = "https://api.vbk.zelcore.io/api";
+    const apiUrl = config.apiUrl;
     const data = {
         jsonrpc: "2.0",
         method: "getinfo",
@@ -49,7 +49,7 @@ function addressesBalance(req, res) {
         const max = 1000000;
         const min = 1;
 
-        const apiUrl = "https://api.vbk.zelcore.io/api";
+        const apiUrl = config.apiUrl;
         const data = {
             jsonRpc: "2.0",
             method: "getbalance",
@@ -93,7 +93,7 @@ function addressesHistory(req, res) {
         const max = 1000000;
         const min = 1;
 
-        const apiUrl = "https://api.vbk.zelcore.io/api";
+        const apiUrl = config.apiUrl;
         const data = {
             jsonRpc: "2.0",
             method: "gethistory",
@@ -137,7 +137,7 @@ function submitTransactions(req, res) {
         const max = 1000000;
         const min = 1;
 
-        const apiUrl = "https://api.vbk.zelcore.io/api";
+        const apiUrl = config.apiUrl;
         const data = {
             jsonRpc: "2.0",
             method: "submittransactions",
@@ -182,7 +182,7 @@ function addressesSignatureIndex(req, res) {
         const max = 1000000;
         const min = 1;
 
-        const apiUrl = "https://api.vbk.zelcore.io/api";
+        const apiUrl = config.apiUrl;
         const data = {
             jsonRpc: "2.0",
             method: "getsignatureindex",
